@@ -1,6 +1,6 @@
 import logging
 
-def setup_logging(level=logging.INFO):
+def setup_logging(level=logging.INFO, log_to_file=False, filename='app.log'):
     """
         Setup the logger for use within notebooks, also turns up level for py4j.clientserver
 
@@ -8,6 +8,11 @@ def setup_logging(level=logging.INFO):
     """
 
     logger = logging.getLogger()
+    
+    # Clear existing handlers, if any, to prevent duplicate logs
+    if logger.hasHandlers():
+        logger.handlers.clear()
+        
     logger.setLevel(logging.INFO)
 
     logging.getLogger("py4j.clientserver").setLevel(logging.WARN)
