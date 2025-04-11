@@ -21,3 +21,6 @@ time.sleep(1)
 logger.warning("An operation")
 time.sleep(2.6)
 logger.info("And done")
+
+# COMMAND ----------
+
